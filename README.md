@@ -1,6 +1,6 @@
 # Ollama Docker Compose Setup with WebUI and Remote Access via Cloudflare
 
-This Docker Compose configuration outlines a complete setup for running local AI models using Ollama with a web interface. It's designed to be accessible remotely, with integration of Cloudflare for enhanced security and accessibility. The setup includes three main services: `webui`, `ollama`, and  `tunnel` for remote access via Cloudflare.
+This Docker Compose configuration outlines a complete setup for running local AI models using Ollama with a web interface. It's designed to be accessible remotely, with integration of Cloudflare for enhanced security and accessibility.
 
 ## Prerequisites
 
