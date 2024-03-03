@@ -5,6 +5,8 @@ services:
     image: ghcr.io/open-webui/open-webui:main
     expose:
      - 8080/tcp
+    ports:
+     - 8080:8080/tcp
     environment:
      - OLLAMA_API_BASE_URL=http://ollama:11434/api
      # uncomment the following if you are running ollama on the docker host and remove the ollama service below
