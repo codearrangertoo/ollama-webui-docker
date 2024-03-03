@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+
+  webui:
+    image: ghcr.io/open-webui/open-webui:main
+    expose:
+     - 8080/tcp
+    ports:
+     - 8080:8080/tcp
+    environment:
+     - OLLAMA_API_BASE_URL=http://ollama:11434/api
+    volumes:
+      - open-webui:/app/backend/data
+    depends_on:
+     - ollama
+
+  ollama:
+    image: ollama/ollama
+    expose:
+     - 11434/tcp
+    healthcheck:
+      test: ollama --version || exit 1
+    command: serve
+    volumes:
+      - ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['all']
+              capabilities: [gpu]
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    environment:
+      - TUNNEL_URL=http://webui:8080
+    command: tunnel --no-autoupdate
+    depends_on:
+      - webui
+
+volumes:
+  ollama:
+  open-webui:
