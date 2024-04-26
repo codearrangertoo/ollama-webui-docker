@@ -8,9 +8,9 @@ services:
     ports:
      - 8080:8080/tcp
     environment:
-     - OLLAMA_API_BASE_URL=http://ollama:11434/api
+     - OLLAMA_BASE_URL=http://ollama:11434
      # uncomment the following if you are running ollama on the docker host and remove the ollama service below
-     #- OLLAMA_API_BASE_URL=http://host.docker.internal:11434/api 
+     #- OLLAMA_BASE_URL=http://host.docker.internal:11434
     volumes:
       - open-webui:/app/backend/data
     depends_on:
