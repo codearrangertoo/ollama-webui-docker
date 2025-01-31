@@ -19,7 +19,7 @@ services:
      - chromadb
 
   chromadb:
-    image: chromadb/chroma:0.6.3
+    image: chromadb/chroma
     volumes:
       # Be aware that indexed data are located in "/chroma/chroma/"
       # Default configuration for persist_directory in chromadb/config.py
