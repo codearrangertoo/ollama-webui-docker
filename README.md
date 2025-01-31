@@ -15,6 +15,10 @@ This Docker Compose configuration outlines a complete setup for running local AI
 - **Function**: Serves as the web interface for interacting with the Ollama AI models.
 - **Customization**: Adjust `OLLAMA_API_BASE_URL` to match the internal network URL of the `ollama` service. If running `ollama` on the docker host, comment out the existing `OLLAMA_API_BASE_URL` and use the provided alternative.
 
+### chromadb
+- **Image**: `chromadb/chroma`
+- **Function**: Provides vector storage for the AI models, enabling efficient data retrieval and management.
+
 ### ollama (Optional if you are running ollama on the docker host)
 - **Image**: `ollama/ollama`
 - **Function**: Acts as the AI model server, with the capability to utilize NVIDIA GPUs for model inference.
